@@ -24,7 +24,7 @@
   "CACHE_PREFIX": "tmc-prod",
   "NAME": "TMC Production",
   "SHORT": "TMC Production",
-  "VER": 7,
+  "VER": 8,
   "COLOR": "#0f766e",
   "COLOR_DARK": "#115e59",
   "BG": "#f1f5f9",
@@ -69,7 +69,10 @@ label{display:block;font-size:14px;color:#475569;margin:8px 0 4px}
 .err{color:#b91c1c;font-weight:700;display:none;margin:6px 0}.hint{color:#475569;font-size:15px}
 .langs select{text-align:center}
 header{position:sticky;top:0;z-index:5;background:var(--c);color:#fff;padding:12px 14px;display:flex;align-items:center;gap:10px}
-header img{width:36px;height:36px;border-radius:8px}header .t{flex:1;font-weight:700;font-size:20px}header .u{font-size:15px;opacity:.9}
+header img{width:36px;height:36px;border-radius:8px}header .t{flex:1;min-width:0;font-weight:700;font-size:20px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}header .u{font-size:15px;opacity:.9}
+header{min-height:56px;flex-wrap:nowrap}header .hS{display:flex;align-items:center;gap:6px;font-size:14px;white-space:nowrap;direction:ltr}header .dot{border:2px solid #fff}
+header .hLang{width:auto;min-height:56px;min-width:64px;margin:0;padding:0 8px;border:2px solid #fff;border-radius:12px;background:transparent;color:#fff;font-size:17px;font-weight:700}header .hLang option{color:#0f172a}
+@media (max-width:380px){header{gap:6px;padding:8px 10px}header img{width:30px;height:30px}header .t{font-size:17px}}
 .dot{width:14px;height:14px;border-radius:50%;background:#94a3b8;display:inline-block}.dot.ok{background:#22c55e}.dot.err{background:#ef4444}.dot.busy{background:#f59e0b}
 main{padding:12px 12px 110px;max-width:600px;margin:0 auto}
 nav.tabs{position:fixed;bottom:0;left:0;right:0;display:flex;background:#fff;border-top:1px solid #cbd5e1;z-index:10;padding-bottom:env(safe-area-inset-bottom)}
@@ -119,6 +122,15 @@ nav.tabs button .ticon{font-size:24px}nav.tabs button.on{color:var(--c);border-t
 .tmcS .ncBox b{font-size:17px!important;line-height:22px!important;font-weight:700!important;margin:0 0 4px!important}
 .tmcS .ncBox button{width:100%!important;height:58px!important;min-height:58px!important;margin:12px 0 0!important;padding:0 14px!important;font-size:18px!important;line-height:normal!important;font-weight:700!important;border:0!important;border-radius:12px!important;background:#dc2626!important;color:#fff!important}
 /*END TMC-SIGNIN*/
+.hhero{display:flex;align-items:center;gap:14px}.hhero img{border-radius:14px;flex:none}.hhero h2{margin:0;font-size:21px}#hDate{color:#475569;margin-top:2px}.hhi{font-size:18px;font-weight:700;color:#0f766e;margin-top:2px}
+.loBand{width:100%;min-height:56px;margin:0 0 10px;font-size:18px;font-weight:700}
+nav.tabs .tlab{font-size:13px;line-height:1.1;text-align:center;overflow-wrap:anywhere;max-width:100%}
+.rpBar{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}.rpBar button{margin:0;padding:6px 4px;font-size:16px}.rpBar button.on{background:var(--rc);color:#fff}
+.rpDates{display:grid;grid-template-columns:1fr 1fr;gap:6px}.rpDates label{margin:4px 0 0}.rpDates>div{min-width:0}#rpOut .rExc,#rpOut .rMon{display:block;overflow-x:auto;max-width:100%}#rpOut .rExc th,#rpOut .rExc td,#rpOut .rMon th,#rpOut .rMon td{word-break:normal;overflow-wrap:normal;hyphens:none}.rpDates input{min-width:0;max-width:100%;box-sizing:border-box}
+.rpAct{display:grid;grid-template-columns:1fr 1fr;gap:8px}.rpAct button{margin:0}.rpAct .rpBk{grid-column:1/-1}
+.rpXls{background:var(--rc)}.rpList button{text-align:start}
+#rpOut .rep{table-layout:fixed;font-size:15px}#rpOut .rep th,#rpOut .rep td{padding:10px 6px;overflow-wrap:anywhere}.rep th{text-align:start}.rep .nm{text-align:end}
+@media print{header,nav.tabs,.bar,.noPr,button{display:none!important}body{background:#fff;padding:0}.box{box-shadow:none}#rpOut .rep th,#rpOut .rep tfoot td,#rpOut .rep tbody tr:nth-child(even) td,.repH{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
 .ptw{display:flex;gap:10px}.ptw>div{flex:1}.plab{display:block;font-weight:700;margin-top:8px}.pbtn{display:flex;align-items:center;justify-content:center;min-height:58px;border-radius:10px;border:1px solid #cbd5e1;font-weight:700;margin:6px 0;cursor:pointer}.pres{font-size:18px;background:#f0fdf4;border-radius:10px;padding:8px}
 .xlsB{display:block;width:100%;min-height:64px;font-size:1.15rem;font-weight:700;background:#1B7F3B;color:#fff;border:0;border-radius:12px;margin:12px 0}@media print{.xlsB{display:none!important}}
 .prep{font-size:13px}.prep .rep{font-size:13px;margin:0 0 10px}.prep .rep th,.prep .rep td{padding:6px 6px;border:1px solid #d1e7d8}.prep .rep .nm{text-align:end}.prep .scr{overflow-x:auto}.prep .rep th{vertical-align:bottom}.prep .rep tbody tr:nth-child(even) td{-webkit-print-color-adjust:exact;print-color-adjust:exact}.prep .rep th,.prep .rep tfoot td{-webkit-print-color-adjust:exact;print-color-adjust:exact}.prep .rnote{white-space:pre-wrap}.prep .sig{margin-top:40px;font-weight:700}
@@ -140,7 +152,7 @@ window.TMC={P:P,L:L};
 
 /* ---------------- Texts EN / FR / AR ---------------- */
 const T={en:{
-hello:"Hello",phTake:"📷 Take photo",phPick:"🖼️ Choose from phone",phDemo:"Photo (demo)",rpTot:"Total",rpItem:"Item",rpQty:"Count",name:"Your name",nameH:"Type your name",go:"Continue",needName:"Please type your name.",
+hello:"Hi",reports:"Reports",rpPick:"Choose a report",rpToday:"Today",rpMonth:"This month",rpDates:"Pick dates",rpFrom:"From",rpTo:"To",rpShow:"Show",rpXls:"📥 Download Excel",rpPrint:"🖨️ Print",rpBack:"⬅ Back",rpNone:"No data for these dates.",rpPeriod:"Period",rpDemo:"Notes per person",rpDate:"Date",rpPerson:"Person",rpNotes:"Notes",rpChars:"Letters",phTake:"📷 Take photo",phPick:"🖼️ Choose from phone",phDemo:"Photo (demo)",rpTot:"Total",rpItem:"Item",rpQty:"Count",name:"Your name",nameH:"Type your name",go:"Continue",needName:"Please type your name.",
 pinT:"Enter your PIN",pin:"PIN",pinWrong:"Wrong PIN. Try again.",pinLock:"Too many wrong PINs. Try again in %m min.",other:"Use a different name",
 setT:"Choose a PIN",setH:"4 to 6 numbers. You will use it every time.",pin2:"Type the PIN again",pinBad:"Use 4 to 6 numbers.",pinDiff:"The two PINs are not the same.",save:"Save",
 setupT:"First Admin setup",setupH:"You are the first user. Choose the Admin PIN.",
@@ -160,7 +172,7 @@ logoutPend:"⚠️ %n change(s) are not sent yet. They stay on this phone and wi
 wipe:"🗑️ Clear this app on this phone",wipeQ:"Delete this app's data on this phone? Other apps are not touched.",wipePend:"⚠️ %n change(s) are NOT sent and will be LOST. Delete anyway?",
 draft:"Your unsaved text was kept.",ncT:"🔴 Not connected",ncH:"The app cannot reach the Sheet. Your work is kept on this phone and sent when it connects.",ncOff:"Sync link missing in this app. Tell the Admin."},
 fr:{
-hello:"Bonjour",phTake:"📷 Prendre une photo",phPick:"🖼️ Choisir dans le téléphone",phDemo:"Photo (démo)",rpTot:"Total",rpItem:"Élément",rpQty:"Nombre",name:"Votre nom",nameH:"Écrivez votre nom",go:"Continuer",needName:"Écrivez votre nom.",
+hello:"Bonjour",reports:"Rapports",rpPick:"Choisir un rapport",rpToday:"Aujourd'hui",rpMonth:"Ce mois",rpDates:"Choisir les dates",rpFrom:"Du",rpTo:"Au",rpShow:"Afficher",rpXls:"📥 Télécharger Excel",rpPrint:"🖨️ Imprimer",rpBack:"⬅ Retour",rpNone:"Aucune donnée pour ces dates.",rpPeriod:"Période",rpDemo:"Notes par personne",rpDate:"Date",rpPerson:"Personne",rpNotes:"Notes",rpChars:"Lettres",phTake:"📷 Prendre une photo",phPick:"🖼️ Choisir dans le téléphone",phDemo:"Photo (démo)",rpTot:"Total",rpItem:"Élément",rpQty:"Nombre",name:"Votre nom",nameH:"Écrivez votre nom",go:"Continuer",needName:"Écrivez votre nom.",
 pinT:"Entrez votre PIN",pin:"PIN",pinWrong:"PIN incorrect. Réessayez.",pinLock:"Trop de PIN erronés. Réessayez dans %m min.",other:"Utiliser un autre nom",
 setT:"Choisissez un PIN",setH:"4 à 6 chiffres. Vous l'utiliserez à chaque fois.",pin2:"Retapez le PIN",pinBad:"Utilisez 4 à 6 chiffres.",pinDiff:"Les deux PIN ne sont pas pareils.",save:"Enregistrer",
 setupT:"Configuration de l'Admin",setupH:"Vous êtes le premier utilisateur. Choisissez le PIN Admin.",
@@ -180,7 +192,7 @@ logoutPend:"⚠️ %n modification(s) pas encore envoyée(s). Elles restent sur 
 wipe:"🗑️ Effacer cette app sur ce téléphone",wipeQ:"Effacer les données de cette app sur ce téléphone ? Les autres apps ne sont pas touchées.",wipePend:"⚠️ %n modification(s) NON envoyée(s) seront PERDUES. Effacer quand même ?",
 draft:"Votre texte non enregistré a été gardé.",ncT:"🔴 Pas connecté",ncH:"L'app n'arrive pas à joindre la feuille. Votre travail reste sur ce téléphone et sera envoyé à la connexion.",ncOff:"Lien de synchro absent dans cette app. Prévenez l'Admin."},
 ar:{
-hello:"مرحبا",phTake:"📷 التقط صورة",phPick:"🖼️ اختر من الهاتف",phDemo:"صورة (تجربة)",rpTot:"المجموع",rpItem:"البند",rpQty:"العدد",name:"اسمك",nameH:"اكتب اسمك",go:"متابعة",needName:"من فضلك اكتب اسمك.",
+hello:"مرحبا",reports:"التقارير",rpPick:"اختر تقريرا",rpToday:"اليوم",rpMonth:"هذا الشهر",rpDates:"اختر التواريخ",rpFrom:"من",rpTo:"إلى",rpShow:"عرض",rpXls:"📥 تنزيل Excel",rpPrint:"🖨️ طباعة",rpBack:"⬅ رجوع",rpNone:"لا توجد بيانات لهذه التواريخ.",rpPeriod:"الفترة",rpDemo:"الملاحظات لكل شخص",rpDate:"التاريخ",rpPerson:"الشخص",rpNotes:"الملاحظات",rpChars:"الحروف",phTake:"📷 التقط صورة",phPick:"🖼️ اختر من الهاتف",phDemo:"صورة (تجربة)",rpTot:"المجموع",rpItem:"البند",rpQty:"العدد",name:"اسمك",nameH:"اكتب اسمك",go:"متابعة",needName:"من فضلك اكتب اسمك.",
 pinT:"أدخل رمز PIN",pin:"PIN",pinWrong:"رمز خاطئ. حاول مرة أخرى.",pinLock:"رموز PIN خاطئة كثيرة. حاول مرة أخرى بعد %m دقيقة.",other:"استخدام اسم آخر",
 setT:"اختر رمز PIN",setH:"من 4 إلى 6 أرقام. ستستخدمه كل مرة.",pin2:"اكتب الرمز مرة أخرى",pinBad:"استخدم من 4 إلى 6 أرقام.",pinDiff:"الرمزان غير متطابقين.",save:"حفظ",
 setupT:"إعداد المسؤول الأول",setupH:"أنت أول مستخدم. اختر رمز المسؤول.",
@@ -307,10 +319,10 @@ function render(){
   const u=me();
   if(!u){A.innerHTML=signinHTML();bindSignin();return}
   flow=null;
-  if(tab==="users"&&!u.admin)tab="home";if(tab==="work"&&!workOk(u))tab="home";
-  A.innerHTML=`<header><img src="icons/icon-192.png" alt=""><div class="t">${esc(C.SHORT)}</div><span class="u">${esc(u.name)}</span><span id="sDot" class="dot"></span></header>
+  if(tab==="users"&&!u.admin)tab="home";if(tab==="work"&&!workOk(u))tab="home";if(tab==="reports"&&!(repOk(u)&&REPORTS.length))tab="home";
+  A.innerHTML=`<header id="hBand"><img src="icons/icon-192.png" alt=""><div class="t">${esc(C.SHORT)}</div><span class="hS" id="hS"><span id="sDot" class="dot"></span><span id="sTime" class="sTime"></span></span><select id="hLang" class="hLang" aria-label="Language">${["en","fr","ar"].map(l=>`<option value="${l}"${l===lang?" selected":""}>${l.toUpperCase()}</option>`).join("")}</select></header>
   <main><div id="ncW" class="bar ncW"></div><div id="updW" class="bar updW"></div><div id="pendW" class="bar pendW"></div><div id="view">${viewHTML(u)}</div></main>
-  <nav class="tabs">${navBtn("home","🏠")}${workOk(u)?navBtn("work","📋"):""}${u.admin?navBtn("users","👥",users().filter(x=>x.status==="pending").length):""}${navBtn("settings","⚙️")}</nav>`;
+  <nav class="tabs">${tabsOf(u).map(x=>navBtn(...x)).join("")}</nav>`;
   bindMain(u);paintSync();paintUpd();
 }
 function workOk(u){return (C.PERMS||[]).length===0||["view","add","reports","export"].some(p=>can(p,u))}
@@ -417,21 +429,58 @@ function viewHTML(u){
   if(tab==="work")return workHTML(u);
   if(tab==="users")return usersHTML(u);
   if(tab==="settings")return settingsHTML(u);
+  if(tab==="reports")return repScreenHTML(u);
   if(tab==="can")return canHTML(u);
   const np=users().filter(x=>x.status==="pending").length;
-  return `<div class="box"><h2 style="margin:4px 0">👋 ${esc(t("hello"))}, ${esc(u.name)}</h2><p class="hint" id="sLine"></p></div>
-  <div class="tiles">
-   ${workOk(u)?`<button type="button" class="tile" data-tab="work"><b>📋</b>${esc(t("work"))}</button>`:""}
-   <button type="button" class="tile sec" data-tab="can" id="hCan"><b>✅</b>${esc(t("can"))}</button>
-   ${u.admin?`<button type="button" class="tile" data-tab="users"><b>👥</b>${esc(t("users"))}${np?` (${np})`:""}</button>`:""}
-   <button type="button" class="tile sec" id="hSync"><b>🔄</b>${esc(t("syncNow").replace("🔄 ",""))}</button>
-   <button type="button" class="tile sec" id="hShare"><b>📤</b>${esc(t("share"))}</button>
-   <button type="button" class="tile sec" data-tab="settings"><b>⚙️</b>${esc(t("settings"))}</button>
-  </div>${insHTML()}`;
+  return `<div class="box hhero" id="hHero"><img src="icons/icon-192.png" alt="" width="64" height="64"><div><h2>${esc(C.NAME)}</h2><div id="hDate">${esc(new Date().toLocaleDateString(lang==="ar"?"ar-TD":lang==="fr"?"fr-FR":"en-GB",{weekday:"long",day:"numeric",month:"long",year:"numeric"}))}</div><div class="hhi" id="hHello">👋 ${esc(t("hello"))}, ${esc(u.name)}</div></div></div><button type="button" class="sec loBand" id="hOut">${esc(t("logout"))}</button>
+  <div class="tiles">${tabsOf(u).filter(x=>x[0]!=="home").map(([k,ic,n])=>`<button type="button" class="tile" data-tab="${k}"${k==="can"?' id="hCan"':""}><b>${ic}</b>${esc(t(k))}${n?` (${n})`:""}</button>`).join("")}</div>`;
 }
 /* ---- REPORT: green company table (CONFIG REPORT_COLOR). rows=[[label,value],...] ---- */
 function reportHTML(title,rows){const tot=rows.reduce((a,r)=>a+(+r[1]||0),0);return `<div class="repH">📊 ${esc(title)}</div><table class="rep"><thead><tr><th>${esc(t("rpItem"))}</th><th>${esc(t("rpQty"))}</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td></tr>`).join("")}</tbody><tfoot><tr><td>${esc(t("rpTot"))}</td><td>${tot}</td></tr></tfoot></table>`}
 window.TMC.reportHTML=reportHTML;
+/* ONE list feeds the bottom tabs AND the Home tiles (same screens, icons, names, order) */
+function tabsOf(u){return [["home","🏠"],...(workOk(u)?[["work","📋"]]:[]),...(repOk(u)&&REPORTS.length?[["reports","📊"]]:[]),["can","✅"],...(u.admin?[["users","👥",users().filter(x=>x.status==="pending").length]]:[]),["settings","⚙️"]]}
+function repOk(u){u=u||me();return !!u&&(!!u.admin||can("reports",u))}
+/* ==== STANDARD REPORTS SCREEN (every app) ====
+   TMC.addReport({id, title:{en,fr,ar}|"key", cols:[{key,label:{en,fr,ar}|"key",num:true,d:0,sum:true}], rows:(from,to)=>[{key:value}], totalLabel?})
+   - from/to = "YYYY-MM-DD" (inclusive). Rows are filtered by the app. Totals = sum of cols with sum:true.
+   - Seen only by Admin or users with the 📊 Reports tick. Green REPORT_COLOR table, Excel (SUM formulas), Print, Back. */
+const REPORTS=[];let rp={id:null,p:"today",from:"",to:""};
+function addReport(d){const i=REPORTS.findIndex(r=>r.id===d.id);if(i>=0)REPORTS[i]=d;else REPORTS.push(d);return d}
+const tx=v=>v==null?"":typeof v==="object"?(v[lang]||v.en||""):t(v);
+const ymd=d=>d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+function rpRange(){const n=new Date(),td=ymd(n);if(rp.p==="month")return [td.slice(0,8)+"01",ymd(new Date(n.getFullYear(),n.getMonth()+1,0))];if(rp.p==="pick"){let f=rp.from||td,to=rp.to||f;if(to<f){const x=f;f=to;to=x}return [f,to]}return [td,td]}
+function rpData(def){const [f,to]=rpRange(),rows=(def.rows?def.rows(f,to)||[]:[]),tot={};def.cols.forEach(c=>{if(c.sum)tot[c.key]=rows.reduce((a,r)=>a+(+r[c.key]||0),0)});return {f:f,to:to,rows:rows,tot:tot}}
+const fmtN=(v,d)=>v==null||v===""?"":(+v).toFixed(d||0);
+/* table in the company green (same look as TMC.reportHTML) */
+function repTable(def,D){const cs=def.cols;return `<div class="repH">📊 ${esc(tx(def.title))}</div><p class="hint" id="rpPer">${esc(t("rpPeriod"))}: ${esc(D.f===D.to?D.f:D.f+" → "+D.to)}</p><table class="rep"><thead><tr>${cs.map(c=>`<th${c.num?' class="nm"':""}>${esc(tx(c.label))}</th>`).join("")}</tr></thead><tbody>${D.rows.length?D.rows.map(r=>`<tr>${cs.map(c=>`<td${c.num?' class="nm"':""}>${esc(c.num?fmtN(r[c.key],c.d):r[c.key])}</td>`).join("")}</tr>`).join(""):`<tr><td colspan="${cs.length}">${esc(t("rpNone"))}</td></tr>`}</tbody><tfoot><tr>${cs.map((c,i)=>`<td${c.num?' class="nm"':""}>${i===0?esc(tx(def.totalLabel||"rpTot")):c.sum?esc(fmtN(D.tot[c.key],c.d)):""}</td>`).join("")}</tr></tfoot></table>`}
+function repXlsx(def,D){const cs=def.cols,R=[],a=5,b=4+Math.max(D.rows.length,1);
+ R.push([{v:tx(def.title),s:"title"}],[t("rpPeriod"),{v:D.f===D.to?D.f:D.f+" → "+D.to,s:"bold"}],[]);
+ R.push(cs.map(c=>({v:tx(c.label),s:"h"})));
+ if(!D.rows.length)R.push([{v:t("rpNone"),s:"b"}]);
+ D.rows.forEach((r,i)=>{const s=i%2?"a":"b";R.push(cs.map(c=>{const v=r[c.key];return c.num&&v!==""&&v!=null&&isFinite(+v)?{v:+v,d:c.d||0,s:s}:{v:v==null?"":String(v),s:s}}))});
+ R.push(cs.map((c,i)=>i===0?{v:tx(def.totalLabel||"rpTot"),s:"t"}:c.sum?{v:+fmtN(D.tot[c.key],c.d),d:c.d||0,s:"t",f:`SUM(${XL.col(i)}${a}:${XL.col(i)}${b})`}:{v:"",s:"t"}));
+ const nm=(C.SHORT+" "+tx(def.title)+" "+(D.f===D.to?D.f:D.f+" to "+D.to)).replace(/[\\\/:*?"<>|]/g," ");
+ return {name:nm+".xlsx",blob:XL.book(tx(def.title),R,cs.map(c=>c.num?14:24),C.REPORT_COLOR)}}
+function repScreenHTML(u){
+ if(!repOk(u))return `<div class="box"><p>${esc(t("noAccess"))}</p></div>`;
+ const def=REPORTS.length===1?REPORTS[0]:REPORTS.find(r=>r.id===rp.id);
+ if(!def)return `<div class="box rpList" id="rpList"><h2>📊 ${esc(t("reports"))}</h2><p class="hint">${esc(t("rpPick"))}</p>${REPORTS.map(r=>`<button type="button" class="sec" data-rp="${esc(r.id)}">📊 ${esc(tx(r.title))}</button>`).join("")}</div>`;
+ const D=rpData(def),[f,to]=[D.f,D.to];
+ return `<div class="box noPr" id="rpPick"><div class="rpBar">${[["today","rpToday"],["month","rpMonth"],["pick","rpDates"]].map(([k,l])=>`<button type="button" class="sec${rp.p===k?" on":""}" data-rpp="${k}">${esc(t(l))}</button>`).join("")}</div>
+ ${rp.p==="pick"?`<div class="rpDates"><div><label for="rpF">${esc(t("rpFrom"))}</label><input type="date" id="rpF" value="${esc(f)}"></div><div><label for="rpT">${esc(t("rpTo"))}</label><input type="date" id="rpT" value="${esc(to)}"></div></div><button type="button" id="rpGo">${esc(t("rpShow"))}</button>`:""}</div>
+ <div class="box" id="rpOut">${def.html?def.html(D):repTable(def,D)}</div>
+ <div class="rpAct noPr">${canXlsU(u)&&(!def.has||def.has(D))?`<button type="button" class="rpXls" id="rpXls">${esc(t("rpXls"))}</button>`:""}<button type="button" class="sec" id="rpPrint">${esc(t("rpPrint"))}</button><button type="button" class="sec rpBk" id="rpBack">${esc(t("rpBack"))}</button></div>`}
+function canXlsU(u){return repOk(u)}
+function bindRep(u){const on=(id,fn)=>{const e=$(id);if(e)e.onclick=fn};
+ document.querySelectorAll("[data-rp]").forEach(b=>b.onclick=()=>{rp.id=b.dataset.rp;render()});
+ document.querySelectorAll("[data-rpp]").forEach(b=>b.onclick=()=>{rp.p=b.dataset.rpp;if(rp.p==="pick"&&!rp.from){const r=rpRange();rp.from=r[0];rp.to=r[1]}render()});
+ on("rpGo",()=>{rp.from=$("rpF").value;rp.to=$("rpT").value;render()});
+ const cur=()=>REPORTS.length===1?REPORTS[0]:REPORTS.find(r=>r.id===rp.id);
+ on("rpXls",()=>{const d=cur();if(!d)return;const D=rpData(d);try{sendXls(d.xlsx?d.xlsx(D):repXlsx(d,D))}catch(e){alert(t("pXlsF"))}});
+ on("rpPrint",()=>window.print());
+ on("rpBack",()=>{if(REPORTS.length>1&&rp.id){rp.id=null}else tab="home";render()})}
+Object.assign(window.TMC,{addReport:addReport,REPORTS:REPORTS,repXlsx:repXlsx,rpData:rpData,repOk:repOk,rp:()=>rp});
 /* ==================== APP FEATURES START ====================
    TMC Production: daily form = Single Day Form, Month = Daily Log. Kind "d" = one day (id = date). Kind "x" = site notes. */
 const EXC=[{n:1,id:"KA00514",m:"XCMG XE335C",a:"Bucket"},{n:2,id:"KA00507",m:"XCMG XE335C",a:"Pecker"},{n:3,id:"KA04687",m:"XCMG XE215i - KLC",a:"Pecker"}];
@@ -507,16 +556,25 @@ function xlsDay(d){const c=calc(d),R=[],N=(v,dd,s)=>{const n=rd(v,dd);return n==
  [[t("pCru"),c.cru,1,"h"],[t("pOre"),c.ore,2,"t"],[t("pGr"),c.gr,1,"Sb %"],[t("pSb"),c.sb,3,"t"]].forEach((r,i)=>{const s=i%2?"a":"b";R.push([{v:r[0],s:s},N(r[1],r[2],s),{v:r[3],s:s}])});
  R.push([],[{v:t("pNotesH"),s:"bold"}],[d.note||""],[],[{v:t("pSig")+" ______________________",s:"bold"}]);
  const [y,m,dd]=d.date.split("-");return {name:`TMC Production SD ${dd}${m}.xlsx`,blob:XL.book("SD "+dd+m,R,[34,18,34,14,14,22,14],C.REPORT_COLOR)}}
-function xlsMon(m){const ds=days().filter(d=>d.date.slice(0,7)===m),R=[];
+function xlsMon(m){const [y,mm]=m.split("-");return xlsMonR(m+"-01",m+"-31",m,`TMC Production Daily Log ${MON3[+mm-1]} ${y}.xlsx`,"Daily Log "+MON3[+mm-1]+" "+y)}
+function xlsMonR(f,to,lab,fname,sheet){const ds=days().filter(d=>d.date>=f&&d.date<=to),R=[];
  const H=[t("pDate"),...EXC.map(e=>`${t("pExc")} ${e.n} (h) ${e.id}`),t("pTotE"),...EXC.map(e=>`${t("pTravH")} ${e.n}`),t("pTotT"),t("pDig"),t("pCru"),t("pOre"),t("pGr"),t("pSb"),t("pRem")];
  const K=[["h1",1],["h2",1],["h3",1],["te",1],["th1",2],["th2",2],["th3",2],["tt",2],["dig",1],["cru",1],["ore",2],["gr",1],["sb",3]];
- R.push([{v:t("pTitleM")+" · "+m,s:"title"}],[]);R.push(H.map(v=>({v:v,s:"h"})));
+ R.push([{v:t("pTitleM")+" · "+lab,s:"title"}],[]);R.push(H.map(v=>({v:v,s:"h"})));
  let w=0,S={};K.forEach(k=>S[k[0]]=0);ds.forEach((d,i)=>{const c=calc(d),s=i%2?"a":"b";K.forEach(k=>S[k[0]]+=c[k[0]]||0);if(c.ore!=null&&c.gr!=null)w+=c.ore;
   R.push([{v:d.date,s:s},...K.map(([k,dd])=>{const n=rd(c[k],dd);return n==null?{v:"",s:s}:{v:n,d:dd,s:s}}),{v:d.note||"",s:s}])});
  const a=4,b=3+Math.max(ds.length,1),L=XL.col,wg=w?S.sb/w*100:null,gc=L(1+K.findIndex(k=>k[0]==="gr")),oc=L(1+K.findIndex(k=>k[0]==="ore"));
  R.push([{v:t("pMonTot"),s:"t"},...K.map(([k,dd],i)=>{const cl=L(i+1);if(k==="gr")return {v:rd(wg,dd)==null?"":rd(wg,dd),d:dd,s:"t",f:`IFERROR(SUMPRODUCT(${oc}${a}:${oc}${b},${gc}${a}:${gc}${b})/SUMIFS(${oc}${a}:${oc}${b},${gc}${a}:${gc}${b},"<>"),"")`};return {v:rd(S[k],dd),d:dd,s:"t",f:`SUM(${cl}${a}:${cl}${b})`}}),{v:"",s:"t"}]);
- const [y,mm]=m.split("-");return {name:`TMC Production Daily Log ${MON3[+mm-1]} ${y}.xlsx`,blob:XL.book("Daily Log "+MON3[+mm-1]+" "+y,R,[15,...EXC.map(()=>16),14,...EXC.map(()=>11),12,12,13,14,13,12,30],C.REPORT_COLOR)}}
+ return {name:fname,blob:XL.book(sheet,R,[15,...EXC.map(()=>16),14,...EXC.map(()=>11),12,12,13,14,13,12,30],C.REPORT_COLOR)}}
 function canXls(){const u=me();return !!u&&(!!u.admin||can("reports")||can("export"))}
+/* PRODUCTION REPORT in the standard Reports screen: one day = Single Day Form; a full month = Daily Log (month file); other ranges = Daily Log table for those dates */
+function lastDay(m){const [y,mm]=m.split("-");return ymd(new Date(+y,+mm,0))}
+function isMon(f,to){return f.slice(8)==="01"&&f.slice(0,7)===to.slice(0,7)&&to===lastDay(f.slice(0,7))}
+addReport({id:"prod",title:{en:"Production report",fr:"Rapport de production",ar:"تقرير الإنتاج"},cols:[],
+ has:D=>D.f===D.to?!!days().find(x=>x.date===D.f):days().some(d=>d.date>=D.f&&d.date<=D.to),
+ html:D=>{const per=`<p class="hint" id="rpPer">${esc(t("rpPeriod"))}: ${esc(D.f===D.to?D.f:D.f+" → "+D.to)}</p>`;if(D.f===D.to){const d=days().find(x=>x.date===D.f);return per+(d?dayRep(d):`<p>${esc(t("rpNone"))}</p>`)}
+  return per+(days().some(d=>d.date>=D.f&&d.date<=D.to)?monRepR(D.f,D.to,isMon(D.f,D.to)?D.f.slice(0,7):D.f+" → "+D.to):`<p>${esc(t("rpNone"))}</p>`)},
+ xlsx:D=>D.f===D.to?xlsDay(days().find(x=>x.date===D.f)):isMon(D.f,D.to)?xlsMon(D.f.slice(0,7)):xlsMonR(D.f,D.to,D.f+" → "+D.to,`TMC Production Daily Log ${D.f.slice(8)}${D.f.slice(5,7)}-${D.to.slice(8)}${D.to.slice(5,7)} ${D.to.slice(0,4)}.xlsx`,"Daily Log")});
 function sendXls(o){const f=typeof File==="function"?new File([o.blob],o.name,{type:o.blob.type}):null;
  if(f&&navigator.canShare&&navigator.share&&navigator.canShare({files:[f]}))return navigator.share({files:[f],title:o.name}).catch(e=>{if(!e||e.name!=="AbortError")dlXls(o)});return Promise.resolve(dlXls(o))}
 function dlXls(o){const u=URL.createObjectURL(o.blob),a=document.createElement("a");a.href=u;a.download=o.name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),4000)}
@@ -526,12 +584,13 @@ function dayRep(d){const c=calc(d),n=(v,k)=>`<td class="nm">${v}</td>`,r=(a,v,un
  ${EXC.map(e=>`<tr class="rE${e.n}"><td>${esc(t("pExc"))} ${e.n}</td>${n(f1(c["h"+e.n]))}${n(f1(c["th"+e.n],2))}${n(f1(c["g"+e.n]))}<td>${esc(e.id)}</td><td>${esc(e.m)}</td><td>${esc(e.a)}</td></tr>`).join("")}</tbody><tfoot><tr class="tot"><td>${esc(t("pTotX"))}</td>${n(f1(c.te))}${n(anyT?f1(c.tt,2):"")}${n(f1(c.dig))}<td></td><td></td><td></td></tr></tfoot></table>
  <table class="rep rOth"><thead><tr><th>${esc(t("pMetric"))}</th><th>${esc(t("pVal"))}</th><th>${esc(t("pUnit"))}</th></tr></thead><tbody>${r(t("pCru"),f1(c.cru),"h")}${r(t("pOre"),f1(c.ore,2),"t")}${r(t("pGr"),f1(c.gr),"Sb %")}${r(t("pSb"),f1(c.sb,3),"t")}</tbody></table>
  <p><b>${esc(t("pNotesH"))}</b></p><p class="rnote">${esc(d.note||"")}</p><p class="sig">${esc(t("pSig"))} ______________________</p></div>`}
-function monRep(m){const ds=days().filter(d=>d.date.slice(0,7)===m),S={};let w=0;
+function monRep(m){return monRepR(m+"-01",m+"-31",m)}
+function monRepR(f,to,lab){const ds=days().filter(d=>d.date>=f&&d.date<=to),S={};let w=0;
  const k=["h1","h2","h3","te","th1","th2","th3","tt","dig","cru","ore","sb"];k.forEach(x=>S[x]=0);
  const rows=ds.map(d=>{const c=calc(d);k.forEach(x=>S[x]+=c[x]||0);if(c.ore!=null&&c.gr!=null)w+=c.ore;
   return `<tr><td>${esc(d.date)}</td>${["h1","h2","h3","te"].map(x=>`<td class="nm">${f1(c[x])}</td>`).join("")}${["th1","th2","th3","tt"].map(x=>`<td class="nm">${f1(c[x],2)}</td>`).join("")}<td class="nm">${f1(c.dig)}</td><td class="nm">${f1(c.cru)}</td><td class="nm">${f1(c.ore,2)}</td><td class="nm">${f1(c.gr)}</td><td class="nm">${f1(c.sb,3)}</td><td>${esc(d.note||"")}</td></tr>`}).join("");
  const wg=w?S.sb/w*100:null;
- return `<div class="prep wide"><h3>${esc(t("pTitleM"))} · ${esc(m)}</h3><div class="scr"><table class="rep rMon"><thead><tr><th>${esc(t("pDate"))}</th>${EXC.map(e=>`<th>${esc(t("pExc"))} ${e.n} (h) ${e.id}</th>`).join("")}<th>${esc(t("pTotE"))}</th>${EXC.map(e=>`<th>${esc(t("pTravH"))} ${e.n}</th>`).join("")}<th>${esc(t("pTotT"))}</th><th>${esc(t("pDig"))}</th><th>${esc(t("pCru"))}</th><th>${esc(t("pOre"))}</th><th>${esc(t("pGr"))}</th><th>${esc(t("pSb"))}</th><th>${esc(t("pRem"))}</th></tr></thead><tbody>${rows}</tbody><tfoot>
+ return `<div class="prep wide"><h3>${esc(t("pTitleM"))} · ${esc(lab)}</h3><div class="scr"><table class="rep rMon"><thead><tr><th>${esc(t("pDate"))}</th>${EXC.map(e=>`<th>${esc(t("pExc"))} ${e.n} (h) ${e.id}</th>`).join("")}<th>${esc(t("pTotE"))}</th>${EXC.map(e=>`<th>${esc(t("pTravH"))} ${e.n}</th>`).join("")}<th>${esc(t("pTotT"))}</th><th>${esc(t("pDig"))}</th><th>${esc(t("pCru"))}</th><th>${esc(t("pOre"))}</th><th>${esc(t("pGr"))}</th><th>${esc(t("pSb"))}</th><th>${esc(t("pRem"))}</th></tr></thead><tbody>${rows}</tbody><tfoot>
  <tr class="tot"><td>${esc(t("pTot"))}</td>${["h1","h2","h3","te"].map(x=>`<td class="nm">${f1(S[x])}</td>`).join("")}${["th1","th2","th3","tt"].map(x=>`<td class="nm">${f1(S[x],2)}</td>`).join("")}<td class="nm">${f1(S.dig)}</td><td class="nm">${f1(S.cru)}</td><td class="nm">${f1(S.ore,2)}</td><td class="nm">${f1(wg)}</td><td class="nm">${f1(S.sb,3)}</td><td></td></tr></tfoot></table></div></div>`}
 function workHTML(u){const tools=[can("reports")?`<button type="button" class="sec" id="exRep">${esc(t("repT"))}</button>`:"",can("export")?`<button type="button" class="sec" id="exExp">${esc(t("expT"))}</button>`:""].join("");const notes=all("x").sort((a,b)=>String(b.at).localeCompare(String(a.at)));const back=`<button type="button" class="sec" id="pBk">${esc(t("pBack"))}</button>`;
  if(PV.v==="new")return stepHTML(u);
@@ -618,8 +677,9 @@ function bindMain(u){
   on("hSync",()=>syncNow());on("hShare",shareModal);
   on("sSave",()=>{L.set("syurl",$("sUrl").value.trim());L.set("sycode",$("sCode").value.trim());L.del("since");syncNow().then(render)});
   on("uChk",()=>checkUpdate(true));
-  on("sOut",logout);on("sWipe",wipe);
-  if(tab==="work")bindWork(u);if(tab==="users")bindUsers();
+  {const hl=$("hLang");if(hl)hl.onchange=()=>{lang=hl.value;L.set("lang",lang);render()}}
+  on("sOut",logout);on("hOut",logout);on("sWipe",wipe);
+  if(tab==="work")bindWork(u);if(tab==="reports")bindRep(u);if(tab==="users")bindUsers();
   draftBind(u);
 }
 async function logout(){
@@ -656,6 +716,7 @@ function paintNc(){const w=$("ncW");if(!w)return;const off=!sUrl(),show=off||net
   const b=$("ncB");if(b)b.onclick=()=>{if(syncOn())syncNow();else api({action:"status",name:"x"}).catch(()=>{})}}
 function paintSync(){paintNc();
   const d=$("sDot");if(d)d.className="dot "+(!syncOn()?"":sState==="busy"?"busy":sState==="err"||!navigator.onLine?"err":sState==="ok"?"ok":"");
+  const tm=$("sTime");if(tm){const lo=+(L.get("lastOk")||0),d0=new Date(lo);tm.textContent=lo?(new Date().toDateString()===d0.toDateString()?d0.toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}):d0.toLocaleDateString([],{day:"numeric",month:"short"})+" "+d0.toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"})):"—"}
   const s=$("sLine");if(s)s.textContent=!syncOn()?t("syncOff"):!navigator.onLine?t("offline"):sState==="err"?t("syncErr"):t("synced");
   const w=$("pendW");if(!w)return;const n=sUrl()?pending():0;
   if(!n){pendSince=0;w.style.display="none";return}if(!pendSince)pendSince=Date.now();
