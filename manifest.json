@@ -1,7 +1,7 @@
 {
  "id": "./?tmcapp=tmcprod",
  "name": "TMC Production",
- "short_name": "Production",
+ "short_name": "TMC Production",
  "start_url": "./?tmcapp=tmcprod",
  "scope": "./",
  "display": "standalone",
