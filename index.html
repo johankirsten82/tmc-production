@@ -24,7 +24,7 @@
   "CACHE_PREFIX": "tmc-prod",
   "NAME": "TMC Production",
   "SHORT": "TMC Production",
-  "VER": 8,
+  "VER": 9,
   "COLOR": "#0f766e",
   "COLOR_DARK": "#115e59",
   "BG": "#f1f5f9",
@@ -494,16 +494,23 @@ T.en.work="Production";T.fr.work="Production";T.ar.work="الإنتاج";
 let PV={v:"menu",step:0,day:null,mon:null};
 const num=v=>{if(v===""||v==null)return null;const n=Number(String(v).replace(",","."));return isFinite(n)?n:null};
 const f1=(v,d)=>v==null||v===""?"":(+v).toFixed(d==null?1:d);
-const today=()=>{const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")};
+/* VER 9: "today" is always Chad time (Africa/Ndjamena = UTC+1 all year, no summer time), whatever the phone clock zone is */
+const today=()=>new Date(Date.now()+36e5).toISOString().slice(0,10);
 function days(){return all("d").filter(d=>d&&d.date).sort((a,b)=>a.date.localeCompare(b.date))}
 function fuelR(date,n){const f=all("f").find(x=>x&&x.date===date&&+x.n===n);return f?num(f.reading):null}
 function prevRead(n,date){const fs=all("f").filter(x=>x&&+x.n===n&&x.date<date&&num(x.reading)!=null).sort((a,b)=>a.date.localeCompare(b.date));const ds=days().filter(d=>d.date<date&&num(d["r"+n])!=null);
  const a=fs.length?fs[fs.length-1]:null,b=ds.length?ds[ds.length-1]:null;if(a&&(!b||a.date>=b.date))return num(a.reading);return b?num(b["r"+n]):null}
-window.TMC.fuelR=fuelR;window.TMC.dayRep=d=>dayRep(d);window.TMC.monRep=m=>monRep(m);window.TMC.stepAt=(u,st,date)=>{const o=PV.step,g=localStorage.getItem(P+"nd");PV.step=st;ndSet({date:date});const h=stepHTML(u);PV.step=o;if(g==null)localStorage.removeItem(P+"nd");else localStorage.setItem(P+"nd",g);return h};window.TMC.prevRead=prevRead;
+window.TMC.fuelR=fuelR;window.TMC.dayRep=d=>dayRep(d);window.TMC.monRep=m=>monRep(m);window.TMC.stepAt=(u,st,date)=>{const o=PV.step,g=localStorage.getItem(P+"nd");PV.step=st;ndSet({date:date});const h=stepHTML(u);PV.step=o;if(g==null)localStorage.removeItem(P+"nd");else localStorage.setItem(P+"nd",g);return h};window.TMC.prevRead=prevRead;window.TMC.today=today;window.TMC.ndGet=ndGet;
 function calc(d){const o={};let te=0,tt=0,any=0;EXC.forEach(e=>{const p=num(d["p"+e.n]),r=num(d["r"+e.n]),tr=num(d["t"+e.n]);const h=p!=null&&r!=null?Math.max(0,r-p):null;o["h"+e.n]=h;o["th"+e.n]=tr!=null?tr/60:null;o["g"+e.n]=h!=null?Math.max(0,h-(tr||0)/60):null;if(h!=null){te+=h;any=1}if(tr!=null)tt+=tr/60});
  o.te=any?te:null;o.tt=tt;o.dig=any?Math.max(0,te-tt):null;o.cru=num(d.cru);o.ore=num(d.ore);o.gr=num(d.gr);o.sb=o.ore!=null&&o.gr!=null?o.ore*o.gr/100:null;return o}
-function ndGet(){try{return JSON.parse(localStorage.getItem(P+"nd"))||{date:today()}}catch(e){return{date:today()}}}
-function ndSet(d){localStorage.setItem(P+"nd",JSON.stringify(d))}
+/* New-entry draft. "mk" = the Chad day the draft was last touched. A draft from an earlier day is never reopened:
+   start fresh on today, keep only the typed note (readings, travel, crusher, ore, grade belong to that old day).
+   A same-day draft is kept as it is, including a date picked by hand. */
+function ndGet(){const T=today();let d=null;try{d=JSON.parse(localStorage.getItem(P+"nd"))}catch(e){}
+ if(!d||typeof d!=="object"||!d.date)return{date:T,mk:T};
+ if((d.mk||d.date)===T)return d;
+ const f={date:T,mk:T};if(d.note&&String(d.note).trim())f.note=d.note;ndSet(f);return f}
+function ndSet(d){d.mk=today();localStorage.setItem(P+"nd",JSON.stringify(d))}
 function inp(id,lab,val,mode){return `<label class="plab" for="${id}">${esc(lab)}</label><input id="${id}" class="pnum" inputmode="${mode||"decimal"}" value="${esc(val==null?"":val)}" autocomplete="off">`}
 function stepHTML(u){const d=ndGet(),s=PV.step,N=EXC.length+3;let h=`<div class="box"><p class="hint">${esc(t("pStep"))} ${s+1}/${N}</p>`;
  if(s===0)h+=`<label class="plab" for="pDate">${esc(t("pDate"))}</label><input id="pDate" type="date" value="${esc(d.date)}">`;
@@ -614,7 +621,7 @@ function bindWork(u){const on=(id,f)=>{const e=$(id);if(e)e.onclick=f};const go=
  document.querySelectorAll(".pRepB").forEach(b=>b.onclick=()=>{PV.day=b.dataset.d;go("day")});
  const ms=$("pMon");if(ms)ms.onchange=()=>{PV.mon=ms.value;render()};
  if(PV.v==="new"){const d=ndGet(),s=PV.step,e=EXC[s-1];
-  const keep=()=>{if(s===0&&$("pDate"))d.date=$("pDate").value||today();if(e){d["p"+e.n]=$("pP").value;d["r"+e.n]=$("pR").value;const th=$("pTh").value.trim(),tm=$("pTm").value.trim();d["t"+e.n]=(th===""&&tm==="")?"":String((num(th)||0)*60+(num(tm)||0));$("pT").value=d["t"+e.n]}if($("pCru")){d.cru=$("pCru").value;d.ore=$("pOre").value;d.gr=$("pGr").value}if($("pNo"))d.note=$("pNo").value;ndSet(d)};
+  const keep=()=>{if(s===0&&$("pDate")){const nd_=$("pDate").value||today();if(nd_!==d.date){EXC.forEach(x=>{delete d["p"+x.n];delete d["r"+x.n]});d.date=nd_}}if(e){d["p"+e.n]=$("pP").value;d["r"+e.n]=$("pR").value;const th=$("pTh").value.trim(),tm=$("pTm").value.trim();d["t"+e.n]=(th===""&&tm==="")?"":String((num(th)||0)*60+(num(tm)||0));$("pT").value=d["t"+e.n]}if($("pCru")){d.cru=$("pCru").value;d.ore=$("pOre").value;d.gr=$("pGr").value}if($("pNo"))d.note=$("pNo").value;ndSet(d)};
   const show=()=>{keep();const o=$("pOut");if(!o)return;const c=calc(d);o.innerHTML=e?`${esc(t("pTravE"))} = <b id="pTrO">${f1(c["th"+e.n],2)}</b> h<br>${esc(t("pHrs"))}: <b>${f1(c["h"+e.n])}</b> · ${esc(t("pDig"))}: <b>${f1(c["g"+e.n])}</b>`:`${esc(t("pSb"))}: <b>${f1(c.sb,3)}</b>`};
   document.querySelectorAll(".box input,.box textarea").forEach(i=>i.oninput=show);show();
   const bad=()=>{if(s===0&&days().some(x=>x.date===d.date))return t("pDone");if(e){const p=num(d["p"+e.n]),r=num(d["r"+e.n]);if(p!=null&&r!=null&&r<p)return t("pBad")}return ""};
