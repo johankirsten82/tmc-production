@@ -24,7 +24,7 @@
   "CACHE_PREFIX": "tmc-prod",
   "NAME": "TMC Production",
   "SHORT": "TMC Production",
-  "VER": 10,
+  "VER": 11,
   "COLOR": "#0f766e",
   "COLOR_DARK": "#115e59",
   "BG": "#f1f5f9",
@@ -41,7 +41,7 @@
     {"id":"export","icon":"📤","en":"Export","fr":"Exporter","ar":"تصدير"}
   ],
   "PERM_DEFAULT": ["view","add"],
-  "PERM_KINDS": {"x":{"view":"view","add":"add"},"d":{"view":"view","add":"add"},"f":{"view":"view","add":"adminonly"}}
+  "PERM_KINDS": {"x":{"view":"view","add":"add"},"d":{"view":"view","add":"add"},"f":{"view":"view","add":"adminonly"},"b":{"view":"view","add":"add"}}
 }/*END*/;</script>
 <title>TMC Production</title>
 <link rel="manifest" href="manifest.json">
@@ -75,8 +75,8 @@ header .hLang{width:auto;min-height:56px;min-width:64px;margin:0;padding:0 8px;b
 @media (max-width:380px){header{gap:6px;padding:8px 10px}header img{width:30px;height:30px}header .t{font-size:17px}}
 .dot{width:14px;height:14px;border-radius:50%;background:#94a3b8;display:inline-block}.dot.ok{background:#22c55e}.dot.err{background:#ef4444}.dot.busy{background:#f59e0b}
 main{padding:12px 12px 110px;max-width:600px;margin:0 auto}
-nav.tabs{position:fixed;bottom:0;left:0;right:0;display:flex;background:#fff;border-top:1px solid #cbd5e1;z-index:10;padding-bottom:env(safe-area-inset-bottom)}
-nav.tabs button{flex:1;margin:0;border-radius:0;background:#fff;color:#475569;min-height:64px;font-size:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;position:relative;padding:0 2px}
+nav.tabs{position:fixed;bottom:0;left:0;right:0;display:flex;background:#fff;border-top:1px solid #cbd5e1;z-index:10;padding-bottom:env(safe-area-inset-bottom);overflow:hidden;max-width:100%;box-sizing:border-box}
+nav.tabs button{flex:1 1 0;min-width:0;margin:0;border-radius:0;background:#fff;color:#475569;min-height:64px;font-size:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;position:relative;padding:0 2px;box-sizing:border-box}
 nav.tabs button .ticon{font-size:24px}nav.tabs button.on{color:var(--c);border-top:3px solid var(--c);background:#f0fdfa}
 .badge{position:absolute;top:4px;inset-inline-end:18%;background:#dc2626;color:#fff;border-radius:9px;padding:0 5px;font-size:12px;line-height:18px;font-weight:700}
 .tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
@@ -124,12 +124,14 @@ nav.tabs button .ticon{font-size:24px}nav.tabs button.on{color:var(--c);border-t
 /*END TMC-SIGNIN*/
 .hhero{display:flex;align-items:center;gap:14px}.hhero img{border-radius:14px;flex:none}.hhero h2{margin:0;font-size:21px}#hDate{color:#475569;margin-top:2px}.hhi{font-size:18px;font-weight:700;color:#0f766e;margin-top:2px}
 .loBand{width:100%;min-height:56px;margin:0 0 10px;font-size:18px;font-weight:700}
-nav.tabs .tlab{display:block;width:100%;font-size:11px;line-height:1.2;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;word-break:normal;overflow-wrap:normal;hyphens:none;-webkit-hyphens:none}
+.bgNav{display:grid;grid-template-columns:1fr 1fr;gap:8px;align-items:center}.bgNav input{grid-column:1/-1;margin:0}.bgNav button{margin:0;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;word-break:normal;overflow-wrap:normal}
+.bgSum{margin-top:8px}.bgRow{display:grid;grid-template-columns:1fr auto;align-items:center;gap:6px 8px}.bgRow .n{font-weight:700;min-width:0}.bgMeta{display:flex;flex-wrap:wrap;gap:4px 8px;justify-content:flex-end;align-items:center;color:#64748b;font-size:14px}.bgMeta bdi,.bgMeta .bgBy{white-space:nowrap}.bgBtns{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:8px}.bgBtns button{margin:0;width:100%;min-height:56px}
+nav.tabs .tlab{display:block;width:100%;font-size:11px;line-height:1.2;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:clip;max-width:100%;word-break:normal;overflow-wrap:normal;hyphens:none;-webkit-hyphens:none}
 .rpBar{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}.rpBar button{margin:0;padding:6px 4px;font-size:16px}.rpBar button.on{background:var(--rc);color:#fff}
 .rpDates{display:grid;grid-template-columns:1fr 1fr;gap:6px}.rpDates label{margin:4px 0 0}.rpDates>div{min-width:0}#rpOut .rExc,#rpOut .rMon{display:block;overflow-x:auto;max-width:100%}#rpOut .rExc th,#rpOut .rExc td,#rpOut .rMon th,#rpOut .rMon td{word-break:normal;overflow-wrap:normal;hyphens:none}.rpDates input{min-width:0;max-width:100%;box-sizing:border-box}
 .rpAct{display:grid;grid-template-columns:1fr 1fr;gap:8px}.rpAct button{margin:0}.rpAct .rpBk{grid-column:1/-1}
 .rpXls{background:var(--rc)}.rpList button{text-align:start}
-#rpOut .rep{table-layout:fixed;font-size:15px}#rpOut .rep th,#rpOut .rep td{padding:10px 6px;overflow-wrap:anywhere}.rep th{text-align:start}.rep .nm{text-align:end}
+#rpOut .rep{table-layout:fixed;font-size:15px}#rpOut .rBagSum{table-layout:auto}#rpOut .rBagSum th,#rpOut .rBagSum td{overflow-wrap:normal;word-break:normal}#rpOut .rBagSum th,#rpOut .rBagSum td:nth-child(2),#rpOut .rBagSum td:nth-child(3){white-space:nowrap}#rpOut .rBagSum [dir=ltr]{white-space:nowrap;display:block;margin-top:2px;font-size:13px}#rpOut .rep th,#rpOut .rep td{padding:10px 6px;overflow-wrap:anywhere}.rep th{text-align:start}.rep .nm{text-align:end}
 @media print{header,nav.tabs,.bar,.noPr,button{display:none!important}body{background:#fff;padding:0}.box{box-shadow:none}#rpOut .rep th,#rpOut .rep tfoot td,#rpOut .rep tbody tr:nth-child(even) td,.repH{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
 .ptw{display:flex;gap:10px}.ptw>div{flex:1}.plab{display:block;font-weight:700;margin-top:8px}.pbtn{display:flex;align-items:center;justify-content:center;min-height:58px;border-radius:10px;border:1px solid #cbd5e1;font-weight:700;margin:6px 0;cursor:pointer}.pres{font-size:18px;background:#f0fdf4;border-radius:10px;padding:8px}
 .xlsB{display:block;width:100%;min-height:64px;font-size:1.15rem;font-weight:700;background:#1B7F3B;color:#fff;border:0;border-radius:12px;margin:12px 0}@media print{.xlsB{display:none!important}}
@@ -322,10 +324,11 @@ function render(){
   if(tab==="users"&&!u.admin)tab="home";if(tab==="work"&&!workOk(u))tab="home";if(tab==="reports"&&!(repOk(u)&&REPORTS.length))tab="home";
   A.innerHTML=`<header id="hBand"><img src="icons/icon-192.png" alt=""><div class="t">${esc(C.SHORT)}</div><span class="hS" id="hS"><span id="sDot" class="dot"></span><span id="sTime" class="sTime"></span></span><select id="hLang" class="hLang" aria-label="Language">${["en","fr","ar"].map(l=>`<option value="${l}"${l===lang?" selected":""}>${l.toUpperCase()}</option>`).join("")}</select></header>
   <main><div id="ncW" class="bar ncW"></div><div id="updW" class="bar updW"></div><div id="pendW" class="bar pendW"></div><div id="view">${viewHTML(u)}</div></main>
-  <nav class="tabs">${tabsOf(u).map(x=>navBtn(...x)).join("")}</nav>`;
+  <nav class="tabs">${tabsOf(u).filter(x=>x[0]!=="can").map(x=>navBtn(...x)).join("")}</nav>`;
   bindMain(u);paintSync();paintUpd();fitTabs();
 }
-function fitTabs(){document.querySelectorAll("nav.tabs .tlab").forEach(el=>{el.style.fontSize="";let fs=parseFloat(getComputedStyle(el).fontSize)||11;while(el.scrollWidth>el.clientWidth+0.5&&fs>8){fs=Math.round((fs-0.5)*10)/10;el.style.fontSize=fs+"px"}})}
+function fitTabs(){const labs=[...document.querySelectorAll("nav.tabs .tlab")];if(!labs.length)return;labs.forEach(el=>el.style.fontSize="");let fs=parseFloat(getComputedStyle(labs[0]).fontSize)||11;const tight=()=>labs.some(el=>el.scrollWidth>el.clientWidth+0.5);while(tight()&&fs>8){fs=Math.round((fs-0.5)*10)/10;labs.forEach(el=>el.style.fontSize=fs+"px")}}
+window.TMC.fitTabs=fitTabs;
 addEventListener("resize",fitTabs);
 
 function workOk(u){return (C.PERMS||[]).length===0||["view","add","reports","export"].some(p=>can(p,u))}
@@ -432,6 +435,7 @@ function viewHTML(u){
   if(tab==="work")return workHTML(u);
   if(tab==="users")return usersHTML(u);
   if(tab==="settings")return settingsHTML(u);
+  if(tab==="stock")return stockHTML(u);
   if(tab==="reports")return repScreenHTML(u);
   if(tab==="can")return canHTML(u);
   const np=users().filter(x=>x.status==="pending").length;
@@ -442,7 +446,7 @@ function viewHTML(u){
 function reportHTML(title,rows){const tot=rows.reduce((a,r)=>a+(+r[1]||0),0);return `<div class="repH">📊 ${esc(title)}</div><table class="rep"><thead><tr><th>${esc(t("rpItem"))}</th><th>${esc(t("rpQty"))}</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td></tr>`).join("")}</tbody><tfoot><tr><td>${esc(t("rpTot"))}</td><td>${tot}</td></tr></tfoot></table>`}
 window.TMC.reportHTML=reportHTML;
 /* ONE list feeds the bottom tabs AND the Home tiles (same screens, icons, names, order) */
-function tabsOf(u){return [["home","🏠"],...(workOk(u)?[["work","📋"]]:[]),...(repOk(u)&&REPORTS.length?[["reports","📊"]]:[]),["can","✅"],...(u.admin?[["users","👥",users().filter(x=>x.status==="pending").length]]:[]),["settings","⚙️"]]}
+function tabsOf(u){return [["home","🏠"],...(workOk(u)?[["work","📋"]]:[]),...(canKind("b","view",u)?[["stock","📦"]]:[]),...(repOk(u)&&REPORTS.length?[["reports","📊"]]:[]),["can","✅"],...(u.admin?[["users","👥",users().filter(x=>x.status==="pending").length]]:[]),["settings","⚙️"]]}
 function repOk(u){u=u||me();return !!u&&(!!u.admin||can("reports",u))}
 /* ==== STANDARD REPORTS SCREEN (every app) ====
    TMC.addReport({id, title:{en,fr,ar}|"key", cols:[{key,label:{en,fr,ar}|"key",num:true,d:0,sum:true}], rows:(from,to)=>[{key:value}], totalLabel?})
@@ -468,7 +472,7 @@ function repXlsx(def,D){const cs=def.cols,R=[],a=5,b=4+Math.max(D.rows.length,1)
 function repScreenHTML(u){
  if(!repOk(u))return `<div class="box"><p>${esc(t("noAccess"))}</p></div>`;
  const def=REPORTS.length===1?REPORTS[0]:REPORTS.find(r=>r.id===rp.id);
- if(!def)return `<div class="box rpList" id="rpList"><h2>📊 ${esc(t("reports"))}</h2><p class="hint">${esc(t("rpPick"))}</p>${REPORTS.map(r=>`<button type="button" class="sec" data-rp="${esc(r.id)}">📊 ${esc(tx(r.title))}</button>`).join("")}</div>`;
+ if(!def)return `<div class="box rpList" id="rpList"><h2>📊 ${esc(t("reports"))}</h2><p class="hint">${esc(t("rpPick"))}</p>${REPORTS.map(r=>`<button type="button" class="sec" data-rp="${esc(r.id)}">📊 ${esc(tx(r.title))}</button>`).join("")}</div><div class="rpAct noPr"><button type="button" class="sec rpBk" id="rpBack">${esc(t("rpBack"))}</button></div>`;
  const D=rpData(def),[f,to]=[D.f,D.to];
  return `<div class="box noPr" id="rpPick"><div class="rpBar">${[["today","rpToday"],["month","rpMonth"],["pick","rpDates"]].map(([k,l])=>`<button type="button" class="sec${rp.p===k?" on":""}" data-rpp="${k}">${esc(t(l))}</button>`).join("")}</div>
  ${rp.p==="pick"?`<div class="rpDates"><div><label for="rpF">${esc(t("rpFrom"))}</label><input type="date" id="rpF" value="${esc(f)}"></div><div><label for="rpT">${esc(t("rpTo"))}</label><input type="date" id="rpT" value="${esc(to)}"></div></div><button type="button" id="rpGo">${esc(t("rpShow"))}</button>`:""}</div>
@@ -504,11 +508,94 @@ Object.assign(T.fr,{pTrH:"heures",pTrMn:"minutes",pTravE:"Trajet",pHrsH:"Heures 
 Object.assign(T.ar,{pXls:"📥 تنزيل Excel",pMonTot:"مجموع الشهر",pXlsF:"تعذّر إنشاء ملف Excel"});
 Object.assign(T.ar,{pTrH:"ساعات",pTrMn:"دقائق",pTravE:"التنقل",pHrsH:"ساعات العمل (س)",pTravM:"الذهاب والعودة لموقع المنجم (س)",pDigH:"الحفر (س)",pTotX:"المجموع",pNew:"➕ يوم جديد",pDays:"📅 الأيام",pMonth:"📊 الشهر",pNotes:"📝 ملاحظات الموقع",pDate:"التاريخ",pExc:"حفارة",pFuel:"من سجل الوقود",pNoF:"⚠️ لا توجد قراءة وقود بعد",pAdmT:"المسؤول: أدخل القراءة",pRef:"🔄 تحديث من الوقود",pPrev:"آخر قراءة",pToday:"قراءة اليوم",pTrav:"الذهاب والعودة لموقع المنجم",pHrs:"ساعات العمل",pDig:"ساعات الحفر",pCru:"ساعات الكسارة المتنقلة",pOre:"خام إلى المخزن (طن)",pGr:"متوسط نسبة الأنتيمون (%)",pSb:"الأنتيمون المحتوى (طن)",pNote:"ملاحظات / توقف",pNext:"التالي ⬅️",pBack:"➡️ رجوع",pSave:"💾 حفظ اليوم",pSaved:"✅ تم الحفظ",pDone:"هذا اليوم محفوظ. اطلب من المسؤول التصحيح.",pBad:"القراءة أقل من آخر قراءة.",pNone:"لا توجد أيام.",pPrint:"🖨️ طباعة",pRep:"📄 تقرير",pTot:"مجموع الشهر",pSig:"توقيع المشرف:",pBy:"أعده",pTitleD:"تقرير العمليات اليومي للموقع",pTitleM:"عمليات التعدين | تقرير الإنتاج اليومي",pTotE:"مجموع الحفارات (س)",pTotT:"مجموع التنقل (س)",pTravH:"تنقل (س)",pRem:"ملاحظات / توقف",pMetric:"المؤشر",pVal:"القيمة",pUnit:"الوحدة",pIdn:"رقم التعريف",pModel:"الطراز",pAtt:"الملحق",pNotesH:"ملاحظات العمليات / التوقف / أساس أخذ العينات",pStep:"خطوة",pFuelFrom:"من الوقود",pFuelFill:"تعبئة",pFuelDay:"يومي",pFuelAdm:"المسؤول",pFuelOff:"غير متصل، آخر قيمة معروفة",pFuelGo:"🔄 تحديث"});
 T.en.work="Production";T.fr.work="Production";T.ar.work="الإنتاج";
+T.en.stock="Stock";T.fr.stock="Stock";T.ar.stock="المخزون";
+Object.assign(T.en,{bgAdd:"➕ Add bag",bgNo:"Bag number",bgKg:"Weight (kg)",bgBy:"Filled by",bgTime:"Time",bgSave:"💾 Save bag",bgNone:"No bags this day.",bgN:"Bags",bgTotKg:"Total (kg)",bgPrev:"Day before",bgNext:"Day after",bgDel:"🗑️ Delete",bgDelQ:"Delete bag %n?",bgNeedKg:"Type the weight in kg.",bgRep:"Bags report",bgDayT:"Day",bgWeek:"Week",bgYear:"Year",bgMonthT:"Month"});
+Object.assign(T.fr,{bgAdd:"➕ Ajouter un sac",bgNo:"N° de sac",bgKg:"Poids (kg)",bgBy:"Rempli par",bgTime:"Heure",bgSave:"💾 Enregistrer le sac",bgNone:"Aucun sac ce jour.",bgN:"Sacs",bgTotKg:"Total (kg)",bgPrev:"Jour précédent",bgNext:"Jour suivant",bgDel:"🗑️ Supprimer",bgDelQ:"Supprimer le sac %n ?",bgNeedKg:"Saisissez le poids en kg.",bgRep:"Rapport des sacs",bgDayT:"Jour",bgWeek:"Semaine",bgYear:"Année",bgMonthT:"Mois"});
+Object.assign(T.ar,{bgAdd:"➕ إضافة كيس",bgNo:"رقم الكيس",bgKg:"الوزن (كغ)",bgBy:"عبأه",bgTime:"الوقت",bgSave:"💾 حفظ الكيس",bgNone:"لا توجد أكياس في هذا اليوم.",bgN:"الأكياس",bgTotKg:"المجموع (كغ)",bgPrev:"اليوم السابق",bgNext:"اليوم التالي",bgDel:"🗑️ حذف",bgDelQ:"حذف الكيس %n؟",bgNeedKg:"أدخل الوزن بالكيلوغرام.",bgRep:"تقرير الأكياس",bgDayT:"اليوم",bgWeek:"الأسبوع",bgYear:"السنة",bgMonthT:"الشهر"});
+
 let PV={v:"menu",step:0,day:null,mon:null};
 const num=v=>{if(v===""||v==null)return null;const n=Number(String(v).replace(",","."));return isFinite(n)?n:null};
 const f1=(v,d)=>v==null||v===""?"":(+v).toFixed(d==null?1:d);
 /* VER 9: "today" is always Chad time (Africa/Ndjamena = UTC+1 all year, no summer time), whatever the phone clock zone is */
 const today=()=>new Date(Date.now()+36e5).toISOString().slice(0,10);
+/* Bags (kind "b"): number = DDMM-NNN in Chad time, restarts each work day. Phone storage only for now (tmcprod_ recs). */
+let BG={day:null,v:"list"};
+function bagCode(date){const p=String(date||today()).split("-");return (p[2]||"")+ (p[1]||"");}
+function bags(){return all("b").filter(b=>b&&b.date&&b.no).sort((a,c)=>String(a.date+a.no).localeCompare(String(c.date+c.no)))}
+function bagsOn(date){return bags().filter(b=>b.date===date)}
+function nextBagNo(date){const pre=bagCode(date)+"-";let m=0;bagsOn(date).forEach(b=>{const n=String(b.no||"");if(n.indexOf(pre)===0){const k=+n.slice(pre.length);if(k>m)m=k}});return pre+String(m+1).padStart(3,"0")}
+function bagTot(date,f,to){const list=(f&&to)?bags().filter(b=>b.date>=f&&b.date<=to):bagsOn(date);return {n:list.length,kg:list.reduce((a,b)=>a+(num(b.kg)||0),0)}}
+function chadHm(){return new Intl.DateTimeFormat("en-GB",{timeZone:"Africa/Ndjamena",hour:"2-digit",minute:"2-digit",hour12:false}).format(new Date())}
+function weekSpan(date){const [y,m,d]=String(date).split("-").map(Number),dt=new Date(Date.UTC(y,m-1,d)),off=(dt.getUTCDay()+6)%7;const mon=new Date(dt);mon.setUTCDate(dt.getUTCDate()-off);const sun=new Date(mon);sun.setUTCDate(mon.getUTCDate()+6);const z=x=>x.getUTCFullYear()+"-"+String(x.getUTCMonth()+1).padStart(2,"0")+"-"+String(x.getUTCDate()).padStart(2,"0");return [z(mon),z(sun)]}
+function bgDelBtn(id,no){return canFix()?`<button type="button" class="sec bgDelB" data-i="${esc(id)}" data-n="${esc(no)}">${esc(t("bgDel"))}</button>`:""}
+function stockHTML(u){
+  if(!canKind("b","view",u))return `<div class="box"><p>${esc(t("noAccess"))}</p></div>`;
+  const day=BG.day||today();BG.day=day;
+  if(BG.v==="add"){
+    if(!canKind("b","add",u))return `<div class="box"><p>${esc(t("noAccess"))}</p></div>`;
+    const no=nextBagNo(today()),tm=chadHm(),who=u.name;
+    return `<div class="box" id="bgAddBox"><h2>📦 ${esc(t("bgAdd")).replace("➕ ","")}</h2>
+      <p class="plab">${esc(t("bgNo"))}</p><p class="pres" id="bgNo"><b>${esc(no)}</b></p>
+      <p class="plab">${esc(t("pDate"))}</p><p class="pres">${esc(today())}</p>
+      <p class="plab">${esc(t("bgTime"))}</p><p class="pres">${esc(tm)}</p>
+      <p class="plab">${esc(t("bgBy"))}</p><p class="pres">${esc(who)}</p>
+      ${inp("bgKg",t("bgKg"),"","decimal")}
+      <p class="err" id="bgErr"></p>
+      <button type="button" id="bgSave">${esc(t("bgSave"))}</button>
+      <button type="button" class="sec" id="bgBk">${esc(t("pBack"))}</button></div>`}
+  const list=bagsOn(day),tot=bagTot(day);
+  const row=b=>`<div class="urow bgRow"><span class="n">${esc(b.no)}</span><span class="bgMeta"><bdi dir="ltr">${f1(b.kg,2)} kg</bdi><span class="bgBy">${esc(b.by||"")}</span><bdi dir="ltr">${esc(b.time||"")}</bdi></span><div class="bgBtns">${fixBtn("b",b.id,"kg")}${bgDelBtn(b.id,b.no)}</div>${fixedNote(b)}</div>`;
+  return `<div class="box" id="bgList"><h2>📦 ${esc(t("stock"))}</h2>
+    <div class="bgNav"><input type="date" id="bgDay" value="${esc(day)}" aria-label="${esc(t("pDate"))}">
+      <button type="button" class="sec" id="bgPrev" aria-label="${esc(t("bgPrev"))}">◀ ${esc(t("bgPrev"))}</button>
+      <button type="button" class="sec" id="bgNext" aria-label="${esc(t("bgNext"))}">${esc(t("bgNext"))} ▶</button></div>
+    ${list.length?list.map(row).join(""):`<p class="hint">${esc(t("bgNone"))}</p>`}
+    <p class="pres bgSum">${esc(t("bgN"))}: <b id="bgCount">${tot.n}</b> · ${esc(t("bgTotKg"))}: <b id="bgKgTot">${f1(tot.kg,2)}</b></p>
+    ${canKind("b","add",u)?`<button type="button" id="bgGoAdd">${esc(t("bgAdd"))}</button>`:""}
+  </div>`}
+function bindStock(u){
+  const on=(id,fn)=>{const e=$(id);if(e)e.onclick=fn};
+  const go=d=>{BG.day=d;BG.v="list";render()};
+  const shift=n=>{const [y,m,d]=(BG.day||today()).split("-").map(Number),x=new Date(Date.UTC(y,m-1,d+n));go(x.getUTCFullYear()+"-"+String(x.getUTCMonth()+1).padStart(2,"0")+"-"+String(x.getUTCDate()).padStart(2,"0"))};
+  on("bgPrev",()=>shift(-1));on("bgNext",()=>shift(1));
+  const di=$("bgDay");if(di)di.onchange=()=>go(di.value||today());
+  on("bgGoAdd",()=>{BG.v="add";render()});on("bgBk",()=>{BG.v="list";BG.day=today();render()});
+  on("bgSave",()=>{const kg=num($("bgKg")&&$("bgKg").value),err=$("bgErr");if(kg==null||kg<=0){if(err)err.textContent=t("bgNeedKg");return}
+    const date=today(),no=nextBagNo(date),id=date+"-"+no.slice(-3),rec={id:id,no:no,date:date,time:chadHm(),kg:kg,by:u.name,at:new Date().toISOString()};
+    if(put("b",id,rec)!==false){BG.v="list";BG.day=date;render()}});
+  document.querySelectorAll(".bgDelB").forEach(b=>b.onclick=()=>{if(!canFix())return;if(!confirm(t("bgDelQ").replace("%n",b.dataset.n||"")))return;remove("b",b.dataset.i);render()});
+  bindFix();
+}
+function bagRepHTML(D){
+  const anc=D.f===D.to?D.f:D.to,w=weekSpan(anc),mo=anc.slice(0,7),yr=anc.slice(0,4);
+  const day=bagTot(anc),wk=bagTot(null,w[0],w[1]),mon=bagTot(null,mo+"-01",mo+"-31"),year=bagTot(null,yr+"-01-01",yr+"-12-31");
+  const ltr=s=>`<div dir="ltr">${esc(s)}</div>`;
+  const line=(lab,sub,tot)=>`<tr><td>${esc(lab)}${sub?ltr(sub):""}</td><td class="nm">${tot.n}</td><td class="nm">${f1(tot.kg,2)}</td></tr>`;
+  const rows=D.rows.length?D.rows.map(r=>`<tr><td dir="ltr">${esc(r.no)}</td><td class="nm">${f1(r.kg,2)}</td><td>${esc(r.by)}</td><td dir="ltr">${esc(r.time)}</td></tr>`).join(""):`<tr><td colspan="4">${esc(t("rpNone"))}</td></tr>`;
+  return `<div class="repH">📦 ${esc(t("bgRep"))}</div><p class="hint" id="rpPer">${esc(t("rpPeriod"))}: <span dir="ltr">${esc(D.f===D.to?D.f:D.f+" → "+D.to)}</span></p>
+    <table class="rep rBag"><thead><tr><th>${esc(t("bgNo"))}</th><th>${esc(t("bgKg"))}</th><th>${esc(t("bgBy"))}</th><th>${esc(t("bgTime"))}</th></tr></thead>
+    <tbody>${rows}</tbody></table>
+    <table class="rep rBagSum"><colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup><thead><tr><th></th><th>${esc(t("bgN"))}</th><th>${esc(t("bgTotKg"))}</th></tr></thead>
+    <tbody>${line(t("bgDayT"),anc,day)}${line(t("bgWeek"),w[0]+" → "+w[1],wk)}${line(t("bgMonthT"),mo,mon)}${line(t("bgYear"),yr,year)}</tbody></table>`}
+function bagXlsx(D){
+  const anc=D.f===D.to?D.f:D.to,w=weekSpan(anc),mo=anc.slice(0,7),yr=anc.slice(0,4);
+  const R=[],N=(v,d,s)=>({v:+(+v).toFixed(d),d:d,s:s});
+  R.push([{v:t("bgRep"),s:"title"}],[t("rpPeriod"),{v:D.f===D.to?D.f:D.f+" → "+D.to,s:"bold"}],[]);
+  R.push([t("bgNo"),t("bgKg"),t("bgBy"),t("bgTime")].map(v=>({v:v,s:"h"})));
+  if(!D.rows.length)R.push([t("rpNone")]);
+  D.rows.forEach((r,i)=>{const s=i%2?"a":"b";R.push([{v:r.no,s:s},N(r.kg,2,s),{v:r.by,s:s},{v:r.time,s:s}])});
+  const a=5,b=4+Math.max(D.rows.length,1);
+  R.push([{v:t("pTotX"),s:"t"},{v:D.tot.kg||0,d:2,s:"t",f:`SUM(B${a}:B${b})`},{v:"",s:"t"},{v:"",s:"t"}]);
+  const pack=k=>bagTot(null,...k); const sums=[[t("bgDayT")+" · "+anc,bagTot(anc)],[t("bgWeek"),pack(w)],[t("bgMonthT")+" · "+mo,pack([mo+"-01",mo+"-31"])],[t("bgYear")+" · "+yr,pack([yr+"-01-01",yr+"-12-31"])]];
+  R.push([]);R.push([t("bgN"),t("bgTotKg")].map(v=>({v:v,s:"h"})));
+  sums.forEach((r,i)=>{const s=i%2?"a":"b";R.push([{v:r[0],s:s},{v:r[1].n,d:0,s:s},N(r[1].kg,2,s)])});
+  const nm=(C.SHORT+" "+t("bgRep")+" "+(D.f===D.to?D.f:D.f+" to "+D.to)).replace(/[\\\/:*?"<>|]/g," ");
+  return {name:nm+".xlsx",blob:XL.book(t("bgRep"),R,[18,14,22,12,22],C.REPORT_COLOR)}}
+addReport({id:"bags",title:{en:"Bags report",fr:"Rapport des sacs",ar:"تقرير الأكياس"},
+  cols:[{key:"no",label:{en:"Bag number",fr:"N° de sac",ar:"رقم الكيس"}},{key:"kg",label:{en:"Weight (kg)",fr:"Poids (kg)",ar:"الوزن (كغ)"},num:true,d:2,sum:true},{key:"by",label:{en:"Filled by",fr:"Rempli par",ar:"عبأه"}},{key:"time",label:{en:"Time",fr:"Heure",ar:"الوقت"}}],
+  rows:(f,to)=>bags().filter(b=>b.date>=f&&b.date<=to).map(b=>({no:b.no,kg:num(b.kg),by:b.by||"",time:(b.date===f&&f===to?b.time:(b.date+" "+(b.time||"")))})),
+  html:D=>bagRepHTML(D),xlsx:D=>bagXlsx(D)});
+window.TMC.BG=BG;window.TMC.nextBagNo=nextBagNo;window.TMC.bagCode=bagCode;window.TMC.bags=bags;window.TMC.bagsOn=bagsOn;window.TMC.bagTot=bagTot;window.TMC.weekSpan=weekSpan;window.TMC.stockHTML=u=>stockHTML(u);
 function days(){return all("d").filter(d=>d&&d.date).sort((a,b)=>a.date.localeCompare(b.date))}
 function fuelMatch(x,n){const e=excBy(n);return !!(x&&(+x.n===(e?e.n:n)||(e&&x.id===e.id)))}
 function fuelSrcKey(x){const s=String((x&&(x.source||x.src))||"").toLowerCase();if(/fill/.test(s))return "fill";if(s==="admin")return "admin";return "daily"}
@@ -709,7 +796,7 @@ function bindMain(u){
   on("uChk",()=>checkUpdate(true));
   {const hl=$("hLang");if(hl)hl.onchange=()=>{lang=hl.value;L.set("lang",lang);render()}}
   on("sOut",logout);on("hOut",logout);on("sWipe",wipe);
-  if(tab==="work")bindWork(u);if(tab==="reports")bindRep(u);if(tab==="users")bindUsers();
+  if(tab==="work")bindWork(u);if(tab==="stock")bindStock(u);if(tab==="reports")bindRep(u);if(tab==="users")bindUsers();
   draftBind(u);
 }
 async function logout(){
